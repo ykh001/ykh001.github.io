@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搬砖人加速器 - 官方下载</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI","Microsoft YaHei",sans-serif;
+}
+body{
+    background:#fff;
+    color:#333;
+    line-height:1.8;
+    min-height:100vh;
+}
+/* 导航栏 */
+.header{
+    background:#fff;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1);
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+}
+.nav-container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.logo{
+    font-size:22px;
+    font-weight:700;
+    background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    text-decoration:none;
+}
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+.nav-links a{
+    color:#4a5568;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    transition:all 0.3s ease;
+    padding:8px 16px;
+    border-radius:8px;
+}
+.nav-links a:hover{
+    color:#667eea;
+    background:rgba(102,126,234,0.1);
+}
+/* 主容器 */
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:100px 20px 60px;
+}
+/* 英雄区域 */
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:40px;
+    /* background:#f5f5f5; */
+    padding:60px;
+    border-radius:24px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+.hero h1{
+    font-size:42px;
+    font-weight:600;
+    color:#1f2937;
+    margin-bottom:20px;
+}
+.hero h1 span{
+    color:#667eea;
+}
+.hero .slogan{
+    font-size:18px;
+    color:#64748b;
+    margin-bottom:40px;
+}
+.hero-content{
+    flex:1;
+    padding-right:40px;
+    text-align:center;
+}
+.hero h1{
+    font-size:42px;
+    font-weight:600;
+    color:#1f2937;
+    margin-bottom:20px;
+}
+.hero h1 span{
+    color:#667eea;
+}
+.hero .slogan{
+    font-size:18px;
+    color:#64748b;
+    margin-bottom:40px;
+}
+.hero-buttons{
+    margin-bottom:30px;
+    text-align:center;
+}
+.hero-btn{
+    display:inline-block;
+    padding:16px 48px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:18px;
+    transition:all 0.3s ease;
+}
+.hero-btn.primary{
+    background:#667eea;
+    color:#fff;
+    box-shadow:0 8px 20px rgba(102,126,234,0.4);
+}
+.hero-btn.primary:hover{
+    background:#5a6fd6;
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(102,126,234,0.5);
+}
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.hero-image img{
+    max-width:100%;
+    border-radius:12px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.15);
+    transform:perspective(1000px) rotateY(-5deg);
+    transition:transform 0.3s ease;
+}
+.hero-image img:hover{
+    transform:perspective(1000px) rotateY(0);
+}
+/* 特性区域 */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:25px;
+    margin-bottom:30px;
+}
+.feature-card{
+    /* background:#f5f5f5; */
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:all 0.4s ease;
+}
+.feature-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+.feature-card h3{
+    font-size:20px;
+    font-weight:600;
+    color:#1f2937;
+    margin-bottom:16px;
+}
+.feature-card p{
+    color:#64748b;
+    line-height:1.6;
+}
+/* 信息区域 */
+.info{
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+    margin-top:40px;
+}
+.info-section{
+    /* background:#f5f5f5; */
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    margin-bottom:30px;
+}
+.info-content p{
+    color:#64748b;
+    font-size:16px;
+    margin-bottom:10px;
+}
+/* 警告信息 */
+.warning-section{
+    background:#fff3cd;
+    border:1px solid #ffeeba;
+    border-radius:12px;
+    padding:24px;
+    margin-bottom:30px;
+    text-align:center;
+}
+.warning-content p{
+    color:#856404;
+    font-size:14px;
+    line-height:1.6;
+    margin:0;
+}
+
+/* 页脚 */
+.footer{
+    background:#fff;
+    padding:40px 0;
+    border-top:1px solid #e5e7eb;
+    text-align:center;
+    color:#64748b;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header class="header">
+    <div class="nav-container">
+        <a href="#" class="logo">搬砖人</a>
+        <!-- <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">功能</a>
+            <a href="#">下载</a>
+            <a href="#">关于</a>
+        </div> -->
+    </div>
+</header>
+
+<!-- 主容器 -->
+<div class="container">
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span>加速器</span>模拟器版</h1>
+            <div class="slogan">稳定流畅 · IP线路多 · 单窗口单IP</div>
+            <div class="hero-buttons">
+                <a href="搬砖人加速器模拟器版-V1.8.2.exe" class="hero-btn primary">立即下载 Windows端</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="1.png" alt="搬砖人加速器">
+        </div>
+    </section>
+
+    <!-- 特性区域 -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>稳定流畅</h3>
+            <p>采用先进的加速技术，确保游戏和应用的稳定运行，告别卡顿和延迟。</p>
+        </div>
+        <div class="feature-card">
+            <h3>海量IP线路</h3>
+            <p>海量IP线路，为您提供不同的IP地址，避免被封禁。</p>
+        </div>
+        <div class="feature-card">
+            <h3>单窗口单IP</h3>
+            <p>模拟器多开每个窗口都是不同的IP。</p>
+        </div>
+    </section>
+
+    <!-- 信息区域 -->
+    <section class="info-section">
+        <div class="info-content">
+            <img src="2.png" alt="搬砖人加速器" style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+        </div>
+    </section>
+
+    <!-- 警告信息 -->
+    <section class="warning-section">
+        <div class="warning-content">
+            <p>⚠️ 警告：严禁用户使用本软件从事任何违法犯罪行为，产生的相关责任用户自负，对此本软件不承担任何法律责任。</p>
+        </div>
+    </section>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <p>© 2026 搬砖人加速器 版权所有</p>
+</footer>
+</body>
+</html>
